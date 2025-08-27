@@ -1,0 +1,54 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expenses Calculator</title>
+  <link rel="stylesheet" href="{% static 'expenses/landing.css' %}">
+  </head>
+  <body>
+    <main class="container">
+      <div class="hero">
+        <span class="badge">Expenses Calculator</span>
+        <h1>Track expenses with ease</h1>
+        <p class="lead">Add, browse, and manage your expenses. Use the API for integrations, or the admin to manage data quickly.</p>
+        <div class="actions">
+        <div id="alert" class="alert" style="display:none; margin-top:12px;"></div>
+        <div class = "form-container">
+        <form id="expense-form" style="margin-top:20px; display:grid; gap:10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); align-items:center;">
+          <input name="name" placeholder="Name" class="input" required />
+          <input name="amount" placeholder="Amount" type="number" step="0.01" class="input" required />
+          <select name="category" class="input" required>
+            <option value="">Category…</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Entertainment">Entertainment</option>
+          </select>
+          <input name="description" placeholder="Description (optional)" class="input" />
+          <button class="btn primary" type="submit" style="justify-self:start;">Add</button>
+        </form>
+        </div>
+        
+        <div id="expenses-list" style="margin-top:22px;"></div>
+        </div>
+        <div class="grid">
+          <div class="card">
+    <script src="{% static 'expenses/landing.js' %}"></script>
+            <h3>REST API</h3>
+            <p>CRUD endpoints via Django REST framework.</p>
+          </div>
+          <div class="card">
+            <h3>Admin</h3>
+            <p>Manage your expenses in the Django admin.</p>
+          </div>
+          <div class="card">
+            <h3>Extensible</h3>
+            <p>Add categories, filters, auth, or export easily.</p>
+          </div>
+        </div>
+      </div>
+      <footer>Powered by Django + DRF</footer>
+    </main>
+  </body>
+</html>
